@@ -10,7 +10,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent implements OnInit {
   title = 'client';
-  weatherForecasts: any;
+  //weatherForecasts: any;
+  posts: any;
 
   constructor(private http: HttpClient) 
   {
@@ -19,9 +20,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void
   {
-    this.http.get('http://localhost:5037/weatherforecast').subscribe(
-      response => {this.weatherForecasts = response; },
+    this.http.get('http://localhost:5037/api/posts').subscribe(
+      response => {this.posts = response; },
       error => {console.log(error)}
     );
+    /*this.http.get('http://localhost:5037/weatherforecast').subscribe(
+      response => {this.weatherForecasts = response; },
+      error => {console.log(error)}
+    );*/
   }
 }
